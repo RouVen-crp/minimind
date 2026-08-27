@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-08-27T21:13:49.0108251+08:00",
+  "project": {
+    "upstream_url": "https://github.com/jingyaogong/minimind",
+    "fork_url": "https://github.com/RouVen-crp/minimind.git",
+    "branch": "codex/minimind-repro",
+    "upstream_snapshot_commit": "d65ef2c00ebc6082f9df11541e1b191655eddb00",
+    "workspace_head_at_capture": "c890fd2d98e962240869448e72dce21b4daa6bcb"
+  },
+  "environment": {
+    "conda_environment": "minimind",
+    "python": "3.11.15",
+    "python_architecture": "64-bit AMD64",
+    "operating_system": "Windows-10-10.0.26200-SP0",
+    "pytorch": "2.6.0+cu124",
+    "cuda_runtime": "12.4",
+    "cuda_available": true,
+    "training_seed": 42
+  },
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "gpu_memory_mib": 8188,
+    "nvidia_driver": "591.74"
+  },
+  "data": [
+    {
+      "stage": "pretrain",
+      "path": "dataset/pretrain_t2t_mini.jsonl",
+      "bytes": 1241043656,
+      "sha256": "6DD6716C84AB36897BDBFC7F88E04F4441C48C1AB7ECEE88CE0B0E7D4685560C"
+    },
+    {
+      "stage": "sft",
+      "path": "dataset/sft_t2t_mini.jsonl",
+      "bytes": 1739201170,
+      "sha256": "ABB1E76B2056E14728BEB78DB96B7B3C491A0BEF1ED3E34A9B381B28F29FA518"
+    }
+  ],
+  "official_baseline_model": {
+    "path": "minimind-3/model.safetensors",
+    "bytes": 127834168,
+    "sha256": "3ADF69402B5D22E693151CABADC12528F923C4BA6BF343738AAF13F0892162E8",
+    "role": "environment and inference baseline only; not a from-scratch reproduction checkpoint"
+  },
+  "dependency_snapshots": {
+    "pip": "experiments/manifests/pip-freeze.txt",
+    "conda": "experiments/manifests/conda-explicit-win-64.txt"
+  }
+}
