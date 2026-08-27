@@ -5,6 +5,7 @@ out
 website/
 docs-minimind/
 dataset/*.jsonl
+dataset/**/*.jsonl
 minimind-3/
 out/
 checkpoints/

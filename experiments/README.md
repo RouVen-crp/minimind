@@ -21,4 +21,4 @@
 - 上游代码快照：`d65ef2c00ebc6082f9df11541e1b191655eddb00`
 - 工作分支：`codex/minimind-repro`
 
-官方权重推理验收已完成。下一步从 [ROADMAP.md](./ROADMAP.md) 的阶段 1（确定性数据拆分与冒烟集）开始。
+确定性数据拆分与复验已完成。下一步从 [ROADMAP.md](./ROADMAP.md) 的阶段 1（Pretrain 冒烟训练）开始。

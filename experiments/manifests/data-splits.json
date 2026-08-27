@@ -1,0 +1,71 @@
+{
+  "datasets": {
+    "pretrain": {
+      "files": {
+        "test": {
+          "bytes": 126730,
+          "path": "dataset/experiment_splits/pretrain_test.jsonl",
+          "samples": 128,
+          "sha256": "4F055BBCD580B0C3F6307855B83755C57195B72F89E0F2E3A43CE5CC9629E700"
+        },
+        "train": {
+          "bytes": 486952,
+          "path": "dataset/experiment_splits/pretrain_train_smoke.jsonl",
+          "samples": 512,
+          "sha256": "0B5E1AC3728A599F2B366FB45174B01C2772143792DA3C695728F9842D46753F"
+        },
+        "validation": {
+          "bytes": 128722,
+          "path": "dataset/experiment_splits/pretrain_validation.jsonl",
+          "samples": 128,
+          "sha256": "069BAF3E210C6A6A0B89A8FE5219F7E0E63FFB5A7F2506E20115B63202F86192"
+        }
+      },
+      "source": {
+        "bytes": 1241043656,
+        "empty_rows": 0,
+        "path": "dataset/pretrain_t2t_mini.jsonl",
+        "rows": 1270238,
+        "sha256": "6DD6716C84AB36897BDBFC7F88E04F4441C48C1AB7ECEE88CE0B0E7D4685560C"
+      }
+    },
+    "sft": {
+      "files": {
+        "test": {
+          "bytes": 125956,
+          "path": "dataset/experiment_splits/sft_test.jsonl",
+          "samples": 64,
+          "sha256": "6069A499884BF7069D21A0AD668A6D1F0E43CD73FC7C08A1789FB09DAC180F9D"
+        },
+        "train": {
+          "bytes": 516530,
+          "path": "dataset/experiment_splits/sft_train_smoke.jsonl",
+          "samples": 256,
+          "sha256": "5EF587028CDC3581A3D164BC98C9DFDF24D1E051147ED883EE019F640B99DA30"
+        },
+        "validation": {
+          "bytes": 121572,
+          "path": "dataset/experiment_splits/sft_validation.jsonl",
+          "samples": 64,
+          "sha256": "8A87B274B36CCDEAC394D3F203B03F814D93F03D4DFB22833A0394A4BFC277C0"
+        }
+      },
+      "source": {
+        "bytes": 1739201170,
+        "empty_rows": 0,
+        "path": "dataset/sft_t2t_mini.jsonl",
+        "rows": 905718,
+        "sha256": "ABB1E76B2056E14728BEB78DB96B7B3C491A0BEF1ED3E34A9B381B28F29FA518"
+      }
+    }
+  },
+  "policy": {
+    "assignment": "SHA-256 domain-separated content hash; 9800/100/100 basis points",
+    "duplicate_identity": "SHA-256 of the source JSONL row without CR/LF",
+    "ordering": "ascending selection rank then content hash",
+    "seed": 42,
+    "selection": "lowest domain-separated SHA-256 ranks per partition",
+    "version": "sha256-content-v1"
+  },
+  "schema_version": 1
+}

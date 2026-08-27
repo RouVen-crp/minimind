@@ -9,23 +9,11 @@
 - [x] 固定上游代码快照并建立个人 Fork 分支。
 - [x] 保存环境、硬件、数据和官方模型证据。
 - [x] 完成官方权重推理验收。
+- [x] 生成并复验确定性 smoke/validation/test 数据拆分及 SHA-256 清单。
 
 基线证据见 `manifests/baseline-manifest.json`。官方 `minimind-3` 只用于环境/推理基线，不属于从随机初始化训练得到的个人 checkpoint。
 
-## 阶段 1：确定性数据拆分与冒烟集
-
-新增一个数据准备脚本，以固定 seed 和稳定哈希规则生成：
-
-- Pretrain smoke：256～1000 条；
-- SFT smoke：128～500 条；
-- 独立 validation/test；
-- 每个输出文件的 SHA-256 和样本数清单。
-
-禁止从 validation/test 回流训练。生成数据保存在 `dataset/`，只提交生成脚本与清单，不提交大体积 JSONL。
-
-通过条件：同一输入与 seed 重跑时，输出文件哈希完全一致。
-
-## 阶段 2：Pretrain 冒烟训练
+## 阶段 1：Pretrain 冒烟训练
 
 所有训练脚本从 `trainer/` 目录执行。RTX 4060 首轮保守配置：
 
@@ -39,7 +27,7 @@ python train_pretrain.py `
   --num_workers 0 `
   --log_interval 10 `
   --save_interval 50 `
-  --data_path ../dataset/smoke/pretrain_smoke.jsonl `
+  --data_path ../dataset/experiment_splits/pretrain_train_smoke.jsonl `
   --save_dir ../out/smoke `
   --save_weight pretrain_smoke
 ```
@@ -54,7 +42,7 @@ python train_pretrain.py `
 
 未通过时只改变一个参数，优先顺序：`batch_size` → `max_seq_len` → `accumulation_steps`。不启用 MoE、WandB 或 `torch.compile`。
 
-## 阶段 3：SFT 冒烟训练
+## 阶段 2：SFT 冒烟训练
 
 从 Pretrain smoke checkpoint 继续：
 
@@ -67,7 +55,7 @@ python train_full_sft.py `
   --num_workers 0 `
   --log_interval 10 `
   --save_interval 50 `
-  --data_path ../dataset/smoke/sft_smoke.jsonl `
+  --data_path ../dataset/experiment_splits/sft_train_smoke.jsonl `
   --save_dir ../out/smoke `
   --from_weight pretrain_smoke `
   --save_weight full_sft_smoke
@@ -75,7 +63,7 @@ python train_full_sft.py `
 
 通过条件与 Pretrain 相同，并额外要求：SFT 正确加载 Pretrain 权重，生成结果体现 chat template 和基础指令跟随能力。
 
-## 阶段 4：评估完整训练成本
+## 阶段 3：评估完整训练成本
 
 不要套用官方 RTX 3090 的 2 小时口径。根据冒烟实测计算完整数据的预计 step 数和 wall-clock，并记录笔记本温度、功耗和持续负载。
 
@@ -85,7 +73,7 @@ python train_full_sft.py `
 - 单阶段预计数天或持续热负载不可接受：使用云端 3090；
 - 云端必须复用相同 commit、数据哈希、依赖快照和配置。
 
-## 阶段 5：完成最小从零复现
+## 阶段 4：完成最小从零复现
 
 主链路只有：
 
@@ -99,7 +87,7 @@ python train_full_sft.py `
 
 严禁把官方 `minimind-3` 权重放入这条个人从零训练链路。
 
-## 阶段 6：独立评测
+## 阶段 5：独立评测
 
 实现固定 held-out 评测器，并比较：
 
@@ -109,13 +97,13 @@ python train_full_sft.py `
 
 最低指标：validation loss、PPL、固定提示集结果、失败分类。结果必须同时提供逐样本 JSONL 和汇总 JSON，不能只保留聊天截图。
 
-## 阶段 7：受控实验——全参 SFT vs LoRA
+## 阶段 6：受控实验——全参 SFT vs LoRA
 
 两组实验必须使用相同的 Pretrain 起点、SFT 子集、seed、有效 batch、步数、序列长度和评测集，只改变微调方式。
 
 报告：可训练参数量与比例、优化器/显存开销、wall-clock、loss/PPL、任务指标和失败样例。
 
-## 阶段 8：接入无人机 v4
+## 阶段 7：接入无人机 v4
 
 将无人机 v4 的 400 条训练任务转换为 MiniMind chat JSONL，不修改原有 50 条独立测试标签。比较：
 
@@ -134,7 +122,7 @@ MiniMind 不要求超过 Qwen。实验目标是解释 64M 模型在严格结构�
 - Tool Calling 与 Agentic RL；
 - 知识蒸馏。
 
-只有阶段 1～8 的证据完整后，再按明确研究问题选择进阶扩展。
+只有阶段 1～7 的证据完整后，再按明确研究问题选择进阶扩展。
 
 ## 简历准入门槛
 
