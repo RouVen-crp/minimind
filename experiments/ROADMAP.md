@@ -10,110 +10,57 @@
 - [x] 保存环境、硬件、数据和官方模型证据。
 - [x] 完成官方权重推理验收。
 - [x] 生成并复验确定性 smoke/validation/test 数据拆分及 SHA-256 清单。
+- [x] 完成全量 Pretrain 前 500 step 稳定性验证：无 OOM/NaN，loss 从 7.5222 降至 6.2078。
 
 基线证据见 `manifests/baseline-manifest.json`。官方 `minimind-3` 只用于环境/推理基线，不属于从随机初始化训练得到的个人 checkpoint。
 
-## 阶段 1：Pretrain 冒烟训练
+## 阶段 1：本地完成 Pretrain mini 1 epoch
 
-所有训练脚本从 `trainer/` 目录执行。RTX 4060 首轮保守配置：
+当前全量训练已经通过前 500 step 稳定性验证，实测约 7.3 小时/epoch，本阶段继续在 RTX 4060 本地完成。
 
-```powershell
-cd trainer
-python train_pretrain.py `
-  --epochs 1 `
-  --batch_size 2 `
-  --accumulation_steps 16 `
-  --max_seq_len 256 `
-  --num_workers 0 `
-  --log_interval 10 `
-  --save_interval 50 `
-  --data_path ../dataset/experiment_splits/pretrain_train_smoke.jsonl `
-  --save_dir ../out/smoke `
-  --save_weight pretrain_smoke
-```
+最终训练合同：Dense 64M、`pretrain_t2t_mini`、1 epoch、seed 42。若当前进程使用默认 `epochs=2`，在 checkpoint 保存后以 `--epochs 1 --from_resume 1` 续训，确保最终只完成 1 epoch。
 
-通过条件：
+验收证据：`pretrain_768.pth`、完整命令和配置、训练日志、loss 曲线、wall-clock、峰值显存、tokens/s、断点恢复记录与固定 Pretrain 样例。官方权重不得进入该训练链路。
 
-- 完成至少 100～500 个 micro steps；
-- 无 OOM、NaN 或 Inf；
-- loss 总体下降；
-- checkpoint 可保存、加载和断点恢复；
-- 记录峰值显存、wall-clock、tokens/s 与最终配置。
+## 阶段 2：通用 Full SFT mini 1 epoch
 
-未通过时只改变一个参数，优先顺序：`batch_size` → `max_seq_len` → `accumulation_steps`。不启用 MoE、WandB 或 `torch.compile`。
+从个人 `pretrain_768.pth` 开始通用全参数 SFT。先运行 500 step 测量真实速度、显存和散热，再决定执行位置：预计不超过 12～16 小时则继续本地；明显超过该范围或持续热负载不可接受时，才切换远程 3090。
 
-## 阶段 2：SFT 冒烟训练
+训练命令必须显式设置 `--epochs 1 --from_weight pretrain`。保存 `full_sft_768.pth`、训练/验证 loss、PPL、资源指标和固定指令样例。该 checkpoint 是后续所有无人机领域实验的唯一共同起点。
 
-从 Pretrain smoke checkpoint 继续：
+## 阶段 3：并行接入无人机 v4 数据与评测
 
-```powershell
-python train_full_sft.py `
-  --epochs 1 `
-  --batch_size 1 `
-  --accumulation_steps 16 `
-  --max_seq_len 512 `
-  --num_workers 0 `
-  --log_interval 10 `
-  --save_interval 50 `
-  --data_path ../dataset/experiment_splits/sft_train_smoke.jsonl `
-  --save_dir ../out/smoke `
-  --from_weight pretrain_smoke `
-  --save_weight full_sft_smoke
-```
+该阶段不占用 GPU，可以在 Pretrain/SFT 运行期间进行：
 
-通过条件与 Pretrain 相同，并额外要求：SFT 正确加载 Pretrain 权重，生成结果体现 chat template 和基础指令跟随能力。
+- 将无人机 v4 的 400 条训练任务确定性转换为 MiniMind chat JSONL；
+- 保持原有 50 条独立测试标签不可变，禁止进入训练；
+- 记录源文件、转换文件、模板和代码 SHA-256；
+- 复用 JSON 合法性、契约、语义、安全拒绝、合法误拒和字段级评测器；
+- 为 MiniMind 输出增加适配层，不修改评测口径。
 
-## 阶段 3：评估完整训练成本
+通过条件：转换可重复、train/test 无交集、MiniMind Zero 输出可进入同一评测器。
 
-不要套用官方 RTX 3090 的 2 小时口径。根据冒烟实测计算完整数据的预计 step 数和 wall-clock，并记录笔记本温度、功耗和持续负载。
+## 阶段 4：无人机领域全参 SFT vs LoRA 受控实验
 
-决策：
+不再单独做一轮通用数据上的全参 SFT vs LoRA；受控实验直接落在无人机任务上。全部变体从同一个个人 `full_sft_768.pth` 出发：
 
-- 时间和散热可接受：本地继续；
-- 单阶段预计数天或持续热负载不可接受：使用云端 3090；
-- 云端必须复用相同 commit、数据哈希、依赖快照和配置。
+1. MiniMind Zero：不做无人机领域训练；
+2. MiniMind UAV Full SFT：400 条训练任务全参数微调；
+3. MiniMind UAV LoRA：相同训练任务进行 LoRA；
+4. 已有 Qwen2.5-0.5B LoRA Planner：作为现有系统基线。
 
-## 阶段 4：完成最小从零复现
+MiniMind Full SFT 与 LoRA 必须固定相同数据、seed、有效 batch、训练步数、序列长度和测试集，只改变微调方式。400 条领域数据在 RTX 4060 本地完成，不使用远程服务器。
 
-主链路只有：
+报告可训练参数量及比例、峰值显存、wall-clock、loss/PPL、JSON 合法率、契约通过率、语义准确率、安全拒绝率、合法误拒率和字段级错误。MiniMind 不要求超过 Qwen，目标是解释 64M 模型的能力边界与微调代价。
 
-```text
-随机初始化 Dense 64M
-  → Pretrain mini 1 epoch
-  → 从 Pretrain checkpoint 开始 Full SFT mini 1 epoch
-```
+## 阶段 5：报告、简历与面试证据
 
-至少保存：随机基线、Pretrain checkpoint、Full SFT checkpoint、train/validation loss、PPL、耗时、峰值显存、tokens/s、恢复记录和固定样例。
+形成两层证据：
 
-严禁把官方 `minimind-3` 权重放入这条个人从零训练链路。
+- 底层复现：随机初始化 → Pretrain → Full SFT 的 loss/PPL、checkpoint 与资源曲线；
+- 领域微调：Zero / UAV Full SFT / UAV LoRA / Qwen LoRA 的逐样本 JSONL、汇总 JSON 和失败分类。
 
-## 阶段 5：独立评测
-
-实现固定 held-out 评测器，并比较：
-
-1. 随机初始化模型；
-2. Pretrain checkpoint；
-3. Full SFT checkpoint。
-
-最低指标：validation loss、PPL、固定提示集结果、失败分类。结果必须同时提供逐样本 JSONL 和汇总 JSON，不能只保留聊天截图。
-
-## 阶段 6：受控实验——全参 SFT vs LoRA
-
-两组实验必须使用相同的 Pretrain 起点、SFT 子集、seed、有效 batch、步数、序列长度和评测集，只改变微调方式。
-
-报告：可训练参数量与比例、优化器/显存开销、wall-clock、loss/PPL、任务指标和失败样例。
-
-## 阶段 7：接入无人机 v4
-
-将无人机 v4 的 400 条训练任务转换为 MiniMind chat JSONL，不修改原有 50 条独立测试标签。比较：
-
-1. MiniMind-3 Zero；
-2. MiniMind-3 无人机领域适配；
-3. Qwen2.5-0.5B LoRA Planner。
-
-复用指标：JSON 合法率、契约通过率、语义准确率、安全拒绝率、合法误拒率、字段级错误；Planner 与 PyBullet 控制器结果分开归因。
-
-MiniMind 不要求超过 Qwen。实验目标是解释 64M 模型在严格结构化规划中的能力边界。
+面试必须能结合源码和实验说明：Pretrain 与 SFT label/mask 的差异、causal attention、GQA/RoPE/RMSNorm/SwiGLU、LoRA 的低秩更新与 rank/alpha、可训练参数和优化器显存、为什么 loss 下降不等于 JSON/语义指标提升，以及 Planner 与 PyBullet 失败如何分层归因。
 
 ## 暂不执行
 
@@ -122,7 +69,7 @@ MiniMind 不要求超过 Qwen。实验目标是解释 64M 模型在严格结构�
 - Tool Calling 与 Agentic RL；
 - 知识蒸馏。
 
-只有阶段 1～7 的证据完整后，再按明确研究问题选择进阶扩展。
+只有阶段 1～5 的证据完整后，再按明确研究问题选择进阶扩展。
 
 ## 简历准入门槛
 

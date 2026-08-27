@@ -21,4 +21,4 @@
 - 上游代码快照：`d65ef2c00ebc6082f9df11541e1b191655eddb00`
 - 工作分支：`codex/minimind-repro`
 
-确定性数据拆分与复验已完成。下一步从 [ROADMAP.md](./ROADMAP.md) 的阶段 1（Pretrain 冒烟训练）开始。
+全量 Pretrain 前 500 step 稳定性验证已完成。下一步从 [ROADMAP.md](./ROADMAP.md) 的阶段 1（本地完成 Pretrain mini 1 epoch）继续，同时并行推进无人机数据与评测适配。
