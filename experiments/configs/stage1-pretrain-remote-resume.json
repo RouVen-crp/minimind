@@ -1,0 +1,25 @@
+{
+  "stage": 1,
+  "name": "pretrain-mini-one-epoch-remote-resume",
+  "host_alias": "dsw-0s3zegbw2it4lbuubg",
+  "workspace": "/mnt/workspace/minimind",
+  "hardware": "NVIDIA A10 23028 MiB",
+  "environment": {
+    "python": "3.11.11",
+    "torch": "2.6.0",
+    "cuda_runtime": "12.4",
+    "driver": "550.163.01"
+  },
+  "command": "python -u train_pretrain.py --epochs 1 --from_resume 1",
+  "resume": {
+    "epoch_zero_based": 0,
+    "step": 9000,
+    "world_size": 1,
+    "checkpoint_sha256": "6e6d9dc93a4fa52523f3223c02661eae9507f2ca2f82418f339e487cc997c95e"
+  },
+  "constraints": {
+    "do_not_change_batch_size": true,
+    "do_not_change_accumulation_steps": true,
+    "total_epochs": 1
+  }
+}
