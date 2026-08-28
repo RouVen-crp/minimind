@@ -16,9 +16,10 @@ metrics_dir="$repo_root/experiments/metrics"
 runtime_dir="$repo_root/experiments/runtime"
 mkdir -p "$log_dir" "$metrics_dir" "$runtime_dir"
 
-if pgrep -af 'train_(pretrain|full_sft)\.py' >/dev/null; then
+existing_training="$(ps -eo pid=,comm=,args= | awk '$2 ~ /^python/ && $0 ~ /train_(pretrain|full_sft)\.py/')"
+if [[ -n "$existing_training" ]]; then
   echo "A MiniMind training process already exists; refusing duplicate launch." >&2
-  pgrep -af 'train_(pretrain|full_sft)\.py' >&2
+  echo "$existing_training" >&2
   exit 3
 fi
 
