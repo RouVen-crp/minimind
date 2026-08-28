@@ -1,0 +1,8 @@
+﻿timestamp,index,name,temperature_c,utilization_gpu_pct,memory_used_mib,memory_total_mib,power_draw_w
+2026/08/28 16:32:21.139, 0, NVIDIA GeForce RTX 4060 Laptop GPU, 55, 0, 815, 8188, 7.11
+2026/08/28 16:33:21.258, 0, NVIDIA GeForce RTX 4060 Laptop GPU, 53, 3, 714, 8188, 2.97
+2026/08/28 16:34:21.335, 0, NVIDIA GeForce RTX 4060 Laptop GPU, 53, 5, 1618, 8188, 2.63
+2026/08/28 16:35:21.450, 0, NVIDIA GeForce RTX 4060 Laptop GPU, 53, 6, 1619, 8188, 2.24
+2026/08/28 16:36:21.545, 0, NVIDIA GeForce RTX 4060 Laptop GPU, 56, 2, 1618, 8188, 2.81
+2026/08/28 16:37:21.657, 0, NVIDIA GeForce RTX 4060 Laptop GPU, 65, 100, 7354, 8188, 29.31
+2026/08/28 16:38:21.764, 0, NVIDIA GeForce RTX 4060 Laptop GPU, 66, 100, 7319, 8188, 27.31

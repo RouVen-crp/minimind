@@ -1,0 +1,1 @@
+ERROR conda.cli.main_run:execute(49): `conda run python -u train_pretrain.py --epochs 1 --from_resume 1` failed. (See above for error)

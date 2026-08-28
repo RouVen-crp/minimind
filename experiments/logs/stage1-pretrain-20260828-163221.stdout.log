@@ -1,0 +1,4 @@
+Model Params: 63.91M
+Trainable Params: 63.912M
+Epoch [1/1]: 跳过前9000个step，从step 9001开始
+Epoch:[1/1](9100/39695), loss: 2.4995, logits_loss: 2.4995, aux_loss: 0.0000, lr: 0.00044413, epoch_time: 1294.0min
