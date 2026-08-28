@@ -9,4 +9,4 @@ dataset/**/*.jsonl
 minimind-3/
 out/
 checkpoints/
-*.pth
+*.pthexperiments/runtime/*-latest.json
