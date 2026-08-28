@@ -1,0 +1,90 @@
+{
+  "conversion": "uav-contract-v4-to-minimind-chat-v1",
+  "cross_split_intersections": {
+    "train__test": {
+      "id": 0,
+      "normalised_instruction_sha256": 0
+    },
+    "train__validation": {
+      "id": 0,
+      "normalised_instruction_sha256": 0
+    },
+    "validation__test": {
+      "id": 0,
+      "normalised_instruction_sha256": 0
+    }
+  },
+  "outputs": {
+    "train": {
+      "bytes": 828070,
+      "path": "dataset/uav_v4_minimind/uav_v4_train.jsonl",
+      "rejection_rows": 16,
+      "rows": 400,
+      "sha256": "fb192d7f48fdb19d5b19db13c5362a7b7432b6b8343a10e8e65174ec96406011"
+    },
+    "validation": {
+      "bytes": 100293,
+      "path": "dataset/uav_v4_minimind/uav_v4_validation.jsonl",
+      "rejection_rows": 5,
+      "rows": 50,
+      "sha256": "15a85f1755c6f68a048c7e92fbffad34dc345138c4b89172c51fd49b4b45419c"
+    }
+  },
+  "policy": {
+    "ordering": "preserve source order",
+    "target": "expected_response for rejection rows, otherwise plan",
+    "test": "blind: schema/hash/leakage checks only; no derived JSONL emitted in stage 3A",
+    "train": "converted to MiniMind SFT conversations",
+    "validation": "converted for development evaluation"
+  },
+  "schema_version": 1,
+  "source": {
+    "dataset_version": "v4",
+    "evaluation_modules": {
+      "drone_planner/contracts.py": {
+        "bytes": 2461,
+        "sha256": "509819b97fd25f2668b9bd0ce751fea434729ef2809f048a0762662b7d49771e"
+      },
+      "drone_planner/evaluation.py": {
+        "bytes": 7500,
+        "sha256": "22ba05b6b0a1353cde647f92e42a8b6bcfc25ab88a825a54b1df13f9dffe2d32"
+      },
+      "drone_planner/experiments.py": {
+        "bytes": 8166,
+        "sha256": "b2872089ee9488a97022b74fc1a6886a0744ebd6428279d1cc1a893fea54c694"
+      },
+      "drone_planner/prompts.py": {
+        "bytes": 2826,
+        "sha256": "42d2c5936c2263ed5638f8234eaba64f99a4885d2546ce1786a23246c369d087"
+      },
+      "drone_planner/validation.py": {
+        "bytes": 3843,
+        "sha256": "37147a984bce0f8a0c5ac991ee4bde4393e2d92b9eecbdaa909332908d9288ca"
+      }
+    },
+    "files": {
+      "test": {
+        "bytes": 37080,
+        "path": "artifacts/dataset_contract_v4/test.jsonl",
+        "rows": 50,
+        "sha256": "136a8c3a047fb8dd6ef4aa6a78b17951f80b9e0822b815b5a2bcb0d19ac96f0c"
+      },
+      "train": {
+        "bytes": 287576,
+        "path": "artifacts/dataset_contract_v4/train.jsonl",
+        "rows": 400,
+        "sha256": "37b28ea81281da0b2fd4b0380965023b00d0c9106e420829337dfc342a461c4f"
+      },
+      "validation": {
+        "bytes": 35035,
+        "path": "artifacts/dataset_contract_v4/validation.jsonl",
+        "rows": 50,
+        "sha256": "4c6f357c81b612b5bc8cdb4d201fbf5019eaf700e22ac8cc5093e4ccc14a19be"
+      }
+    },
+    "git_revision": null,
+    "manifest_sha256": "4eac703bd194fec1769347dd75bd25d01ff4d1fc7e24f7e6a41e70858afcc632",
+    "project_root_argument": "D:\\CODE\\graduation_project\\gradproject-main",
+    "provenance_note": "Source directory has no discoverable Git metadata; file SHA-256 values are authoritative."
+  }
+}

@@ -21,4 +21,4 @@
 - 上游代码快照：`d65ef2c00ebc6082f9df11541e1b191655eddb00`
 - 工作分支：`codex/minimind-repro`
 
-全量 Pretrain 前 500 step 稳定性验证已完成。下一步从 [ROADMAP.md](./ROADMAP.md) 的阶段 1（本地完成 Pretrain mini 1 epoch）继续，同时并行推进无人机数据与评测适配。
+Pretrain 已迁移至远程 A10，并从 step 9000 断点继续第 1 个 epoch。无人机阶段 3A 的数据转换和评测适配已完成；真实 MiniMind Zero 评测等待阶段 2 的个人 Full SFT checkpoint。

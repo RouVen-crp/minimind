@@ -1,0 +1,23 @@
+{
+  "stage": "3A",
+  "source_project_root": "D:/CODE/graduation_project/gradproject-main",
+  "source_dataset": "artifacts/dataset_contract_v4",
+  "conversion_command": "python scripts/prepare_uav_minimind_data.py --uav-project-root D:/CODE/graduation_project/gradproject-main",
+  "smoke_command": "python scripts/smoke_uav_evaluation.py --uav-project-root D:/CODE/graduation_project/gradproject-main",
+  "test_command": "python -m unittest tests.test_prepare_uav_minimind_data tests.test_uav_minimind_adapter tests.test_prepare_experiment_data",
+  "policy": {
+    "train_rows": 400,
+    "validation_rows": 50,
+    "blind_test_rows": 50,
+    "emit_train": true,
+    "emit_validation": true,
+    "emit_test": false,
+    "blind_test_requires_explicit_stage3b_flag": true
+  },
+  "model_evaluation": {
+    "checkpoint": "out/full_sft_768.pth",
+    "status": "blocked_until_stage2_completion",
+    "validation_command": "python scripts/evaluate_uav_minimind.py --uav-project-root D:/CODE/graduation_project/gradproject-main",
+    "blind_test_command": "python scripts/evaluate_uav_minimind.py --uav-project-root D:/CODE/graduation_project/gradproject-main --split test --allow-blind-test"
+  }
+}

@@ -32,6 +32,9 @@
 
 该阶段不占用 GPU，可以在 Pretrain/SFT 运行期间进行：
 
+- [x] 阶段 3A：完成 400 train / 50 validation 的确定性 MiniMind chat 转换、拒绝标签路由、SHA-256 清单、跨 split ID/归一化指令去重、SFTDataset 装载、MiniMind planner 适配器及 validation oracle 接线 smoke。
+- [ ] 阶段 3B：等待个人 `full_sft_768.pth`，先运行 validation 并冻结推理参数，再一次性执行 50 条 blind test 和失败分析。
+
 - 将无人机 v4 的 400 条训练任务确定性转换为 MiniMind chat JSONL；
 - 保持原有 50 条独立测试标签不可变，禁止进入训练；
 - 记录源文件、转换文件、模板和代码 SHA-256；
