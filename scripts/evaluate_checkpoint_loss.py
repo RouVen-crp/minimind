@@ -47,7 +47,7 @@ def main() -> None:
     args = parse_args()
     tokenizer = AutoTokenizer.from_pretrained(args.tokenizer_path)
     dataset_type = PretrainDataset if args.kind == "pretrain" else SFTDataset
-    dataset = dataset_type(args.data_path, tokenizer, max_length=args.max_seq_len)
+    dataset = dataset_type(str(args.data_path), tokenizer, max_length=args.max_seq_len)
     loader = DataLoader(dataset, batch_size=args.batch_size, shuffle=False, num_workers=4, pin_memory=True)
     config = MiniMindConfig(hidden_size=args.hidden_size, num_hidden_layers=args.num_hidden_layers, use_moe=False)
     model = MiniMindForCausalLM(config)
