@@ -6,12 +6,15 @@ import argparse
 import hashlib
 import json
 import math
+import sys
 import time
 from pathlib import Path
 
 import torch
 from torch.utils.data import DataLoader
 from transformers import AutoTokenizer
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from dataset.lm_dataset import PretrainDataset, SFTDataset
 from model.model_minimind import MiniMindConfig, MiniMindForCausalLM
