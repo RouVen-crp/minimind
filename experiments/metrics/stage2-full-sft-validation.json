@@ -1,0 +1,15 @@
+{
+  "kind": "sft",
+  "checkpoint": "out/full_sft_768.pth",
+  "checkpoint_sha256": "ceb382eaaaa98587c528e1ae3cc830603f55a221bd2766212cb40dcefd8420a1",
+  "data_path": "dataset/experiment_splits/sft_validation.jsonl",
+  "data_sha256": "8a87b274b36ccdeac394d3f203b03f814d93f03d4dfb22833a0394a4bfc277c0",
+  "samples": 64,
+  "supervised_tokens": 26243,
+  "loss": 1.6456922225798065,
+  "perplexity": 5.184597560576463,
+  "batch_size": 8,
+  "max_seq_len": 768,
+  "duration_seconds": 0.80430877400795,
+  "peak_gpu_memory_mib": 613.418
+}

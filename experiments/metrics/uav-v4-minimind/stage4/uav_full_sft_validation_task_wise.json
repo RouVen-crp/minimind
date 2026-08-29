@@ -1,0 +1,42 @@
+[
+  {
+    "variant": "uav_full_sft_validation",
+    "category": "circle",
+    "rows": 6,
+    "semantic_correct": 0,
+    "false_rejections": 0,
+    "semantic_accuracy": 0.0
+  },
+  {
+    "variant": "uav_full_sft_validation",
+    "category": "multi",
+    "rows": 13,
+    "semantic_correct": 6,
+    "false_rejections": 0,
+    "semantic_accuracy": 0.46153846153846156
+  },
+  {
+    "variant": "uav_full_sft_validation",
+    "category": "multi_drone",
+    "rows": 7,
+    "semantic_correct": 0,
+    "false_rejections": 0,
+    "semantic_accuracy": 0.0
+  },
+  {
+    "variant": "uav_full_sft_validation",
+    "category": "point",
+    "rows": 13,
+    "semantic_correct": 13,
+    "false_rejections": 0,
+    "semantic_accuracy": 1.0
+  },
+  {
+    "variant": "uav_full_sft_validation",
+    "category": "rectangle",
+    "rows": 6,
+    "semantic_correct": 0,
+    "false_rejections": 0,
+    "semantic_accuracy": 0.0
+  }
+]

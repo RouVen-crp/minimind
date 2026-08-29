@@ -1,0 +1,2 @@
+variant,failure_type,count
+minimind_zero_test,invalid_or_constraint_error,40

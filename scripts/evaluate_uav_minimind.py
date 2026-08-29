@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import importlib
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -33,6 +34,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--split", choices=("validation", "test"), default="validation")
     parser.add_argument("--allow-blind-test", action="store_true")
     parser.add_argument("--checkpoint", type=Path, default=Path("out/full_sft_768.pth"))
+    parser.add_argument("--lora-checkpoint", type=Path)
+    parser.add_argument("--variant", help="Stable experiment label used in evaluator rows and output filenames.")
     parser.add_argument("--tokenizer-path", type=Path, default=Path("model"))
     parser.add_argument("--output-dir", type=Path, default=Path("experiments/metrics/uav-v4-minimind"))
     parser.add_argument("--device", default="cuda")
@@ -49,22 +52,29 @@ def main() -> None:
     planner = MiniMindPlanner(
         project_root=args.uav_project_root,
         checkpoint=args.checkpoint,
+        lora_checkpoint=args.lora_checkpoint,
         tokenizer_path=args.tokenizer_path,
         device=args.device,
     )
     evaluate_records, summarise, write_breakdowns = _load_external(args.uav_project_root)
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    rows_path = args.output_dir / f"minimind_zero_{args.split}.jsonl"
-    evaluate_records(records, planner, "minimind_zero", rows_path, batch_size=args.batch_size)
+    variant = args.variant or (
+        args.lora_checkpoint.stem
+        if args.lora_checkpoint is not None
+        else "minimind_zero" if args.checkpoint.stem == "full_sft_768" else args.checkpoint.stem
+    )
+    if not re.fullmatch(r"[A-Za-z0-9_.-]+", variant):
+        raise SystemExit("--variant may contain only letters, digits, dot, underscore, and hyphen")
+    rows_path = args.output_dir / f"{variant}_{args.split}.jsonl"
+    evaluate_records(records, planner, variant, rows_path, batch_size=args.batch_size)
     rows = _read(rows_path)
-    summary = {"variant": "minimind_zero", "split": args.split, **summarise(rows)}
-    (args.output_dir / f"minimind_zero_{args.split}_summary.json").write_text(
+    summary = {"variant": variant, "split": args.split, **summarise(rows)}
+    (args.output_dir / f"{variant}_{args.split}_summary.json").write_text(
         json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
-    write_breakdowns(rows, args.output_dir, f"minimind_zero_{args.split}")
+    write_breakdowns(rows, args.output_dir, f"{variant}_{args.split}")
     print(json.dumps(summary, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":
     main()
-

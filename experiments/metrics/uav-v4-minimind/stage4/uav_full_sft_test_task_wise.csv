@@ -1,0 +1,6 @@
+variant,category,rows,semantic_correct,false_rejections,semantic_accuracy
+uav_full_sft_test,circle,5,0,0,0.0
+uav_full_sft_test,multi,12,5,0,0.4166666666666667
+uav_full_sft_test,multi_drone,8,0,0,0.0
+uav_full_sft_test,point,9,9,0,1.0
+uav_full_sft_test,rectangle,6,0,0,0.0

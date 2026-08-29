@@ -1,0 +1,6 @@
+variant,category,rows,semantic_correct,false_rejections,semantic_accuracy
+minimind_zero_validation,circle,6,0,0,0.0
+minimind_zero_validation,multi,13,0,0,0.0
+minimind_zero_validation,multi_drone,7,0,0,0.0
+minimind_zero_validation,point,13,0,0,0.0
+minimind_zero_validation,rectangle,6,0,0,0.0

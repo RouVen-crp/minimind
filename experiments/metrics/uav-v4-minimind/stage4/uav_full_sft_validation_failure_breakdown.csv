@@ -1,0 +1,5 @@
+variant,failure_type,count
+uav_full_sft_validation,drone-1.waypoint_count,3
+uav_full_sft_validation,drone-1.waypoint_value,15
+uav_full_sft_validation,drone_set,2
+uav_full_sft_validation,invalid_or_constraint_error,8

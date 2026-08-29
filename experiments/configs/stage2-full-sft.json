@@ -1,0 +1,14 @@
+{
+  "stage": "stage2-full-sft",
+  "command": "python -u train_full_sft.py --epochs 1 --from_weight pretrain",
+  "base_checkpoint": "out/pretrain_768.pth",
+  "dataset": "dataset/sft_t2t_mini.jsonl",
+  "seed": 42,
+  "epochs": 1,
+  "batch_size": 16,
+  "max_seq_len": 768,
+  "learning_rate": 0.00001,
+  "optimizer": "AdamW",
+  "dtype": "bfloat16",
+  "host_gpu": "NVIDIA A10 23028 MiB"
+}

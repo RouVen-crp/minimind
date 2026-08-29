@@ -24,6 +24,7 @@ class MiniMindPlanner:
         project_root: Path,
         checkpoint: Path,
         tokenizer_path: Path,
+        lora_checkpoint: Path | None = None,
         device: str = "cuda",
         hidden_size: int = 768,
         num_hidden_layers: int = 8,
@@ -34,6 +35,7 @@ class MiniMindPlanner:
     ) -> None:
         self.project_root = project_root
         self.checkpoint = checkpoint
+        self.lora_checkpoint = lora_checkpoint
         self.tokenizer_path = tokenizer_path
         self.device = device
         self.hidden_size = hidden_size
@@ -60,9 +62,17 @@ class MiniMindPlanner:
         self.model = MiniMindForCausalLM(config)
         state = torch.load(self.checkpoint, map_location=self.device)
         self.model.load_state_dict(state, strict=True)
+        if self.lora_checkpoint is not None:
+            from model.model_lora import apply_lora
+
+            apply_lora(self.model)
         if self.device.startswith("cuda"):
             self.model = self.model.half()
         self.model = self.model.eval().to(self.device)
+        if self.lora_checkpoint is not None:
+            from model.model_lora import load_lora
+
+            load_lora(self.model, str(self.lora_checkpoint))
 
     def generate(
         self,
@@ -95,4 +105,3 @@ class MiniMindPlanner:
 
     def generate_many(self, instructions: list[str], examples: list[dict] | None = None) -> list[str]:
         return [self.generate(instruction, examples=examples) for instruction in instructions]
-

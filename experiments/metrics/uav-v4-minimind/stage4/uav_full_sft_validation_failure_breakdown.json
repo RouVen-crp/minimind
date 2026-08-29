@@ -1,0 +1,22 @@
+[
+  {
+    "variant": "uav_full_sft_validation",
+    "failure_type": "drone-1.waypoint_count",
+    "count": 3
+  },
+  {
+    "variant": "uav_full_sft_validation",
+    "failure_type": "drone-1.waypoint_value",
+    "count": 15
+  },
+  {
+    "variant": "uav_full_sft_validation",
+    "failure_type": "drone_set",
+    "count": 2
+  },
+  {
+    "variant": "uav_full_sft_validation",
+    "failure_type": "invalid_or_constraint_error",
+    "count": 8
+  }
+]

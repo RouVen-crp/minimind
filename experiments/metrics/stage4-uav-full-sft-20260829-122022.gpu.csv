@@ -1,0 +1,5 @@
+timestamp,index,name,temperature_c,utilization_gpu_pct,memory_used_mib,memory_total_mib,power_draw_w
+2026/08/29 12:20:22.504, 0, NVIDIA A10, 34, 0, 1, 23028, 16.55
+2026/08/29 12:21:22.519, 0, NVIDIA A10, 48, 4, 7232, 23028, 61.84
+2026/08/29 12:22:22.533, 0, NVIDIA A10, 51, 0, 7232, 23028, 63.13
+2026/08/29 12:23:22.549, 0, NVIDIA A10, 52, 0, 7232, 23028, 64.32

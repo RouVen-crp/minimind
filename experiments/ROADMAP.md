@@ -33,7 +33,7 @@
 该阶段不占用 GPU，可以在 Pretrain/SFT 运行期间进行：
 
 - [x] 阶段 3A：完成 400 train / 50 validation 的确定性 MiniMind chat 转换、拒绝标签路由、SHA-256 清单、跨 split ID/归一化指令去重、SFTDataset 装载、MiniMind planner 适配器及 validation oracle 接线 smoke。
-- [ ] 阶段 3B：等待个人 `full_sft_768.pth`，先运行 validation 并冻结推理参数，再一次性执行 50 条 blind test 和失败分析。
+- [x] 阶段 3B：个人 `full_sft_768.pth` 已完成 50 条 validation 与一次 50 条 blind test；Zero 基线无法输出合法 JSON，完整证据见 `reports/stage3b-uav-zero-evaluation.md`。
 
 - 将无人机 v4 的 400 条训练任务确定性转换为 MiniMind chat JSONL；
 - 保持原有 50 条独立测试标签不可变，禁止进入训练；
@@ -52,11 +52,17 @@
 3. MiniMind UAV LoRA：相同训练任务进行 LoRA；
 4. 已有 Qwen2.5-0.5B LoRA Planner：作为现有系统基线。
 
-MiniMind Full SFT 与 LoRA 必须固定相同数据、seed、有效 batch、训练步数、序列长度和测试集，只改变微调方式。400 条领域数据在 RTX 4060 本地完成，不使用远程服务器。
+MiniMind Full SFT 与 LoRA 必须固定相同数据、seed、有效 batch、训练步数、序列长度和测试集，只改变微调方式。400 条领域数据最终在已租用的远程 A10 上完成，以避免空置计费；两组仍使用相同代码、数据与实验合同。
+
+- [x] MiniMind Zero、UAV Full SFT 与 UAV LoRA 已完成受控训练和 validation/test 评测；结果见 `reports/stage4-uav-full-sft-vs-lora.md`。
 
 报告可训练参数量及比例、峰值显存、wall-clock、loss/PPL、JSON 合法率、契约通过率、语义准确率、安全拒绝率、合法误拒率和字段级错误。MiniMind 不要求超过 Qwen，目标是解释 64M 模型的能力边界与微调代价。
 
 ## 阶段 5：报告、简历与面试证据
+
+- [x] 已形成阶段 1～4 实验报告、源码学习笔记、面试问答和仅使用实测数字的简历素材；入口见 `reports/README.md`。
+
+- [x] 已形成阶段 1～4 实验报告、源码学习笔记、面试问答和仅使用实测数字的简历素材；入口见 `reports/README.md`。
 
 形成两层证据：
 

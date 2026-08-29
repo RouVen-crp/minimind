@@ -1,0 +1,42 @@
+[
+  {
+    "variant": "minimind_zero_test",
+    "category": "circle",
+    "rows": 5,
+    "semantic_correct": 0,
+    "false_rejections": 0,
+    "semantic_accuracy": 0.0
+  },
+  {
+    "variant": "minimind_zero_test",
+    "category": "multi",
+    "rows": 12,
+    "semantic_correct": 0,
+    "false_rejections": 0,
+    "semantic_accuracy": 0.0
+  },
+  {
+    "variant": "minimind_zero_test",
+    "category": "multi_drone",
+    "rows": 8,
+    "semantic_correct": 0,
+    "false_rejections": 0,
+    "semantic_accuracy": 0.0
+  },
+  {
+    "variant": "minimind_zero_test",
+    "category": "point",
+    "rows": 9,
+    "semantic_correct": 0,
+    "false_rejections": 0,
+    "semantic_accuracy": 0.0
+  },
+  {
+    "variant": "minimind_zero_test",
+    "category": "rectangle",
+    "rows": 6,
+    "semantic_correct": 0,
+    "false_rejections": 0,
+    "semantic_accuracy": 0.0
+  }
+]

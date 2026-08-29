@@ -1,0 +1,42 @@
+[
+  {
+    "variant": "uav_lora_validation",
+    "category": "circle",
+    "rows": 6,
+    "semantic_correct": 0,
+    "false_rejections": 0,
+    "semantic_accuracy": 0.0
+  },
+  {
+    "variant": "uav_lora_validation",
+    "category": "multi",
+    "rows": 13,
+    "semantic_correct": 0,
+    "false_rejections": 0,
+    "semantic_accuracy": 0.0
+  },
+  {
+    "variant": "uav_lora_validation",
+    "category": "multi_drone",
+    "rows": 7,
+    "semantic_correct": 0,
+    "false_rejections": 0,
+    "semantic_accuracy": 0.0
+  },
+  {
+    "variant": "uav_lora_validation",
+    "category": "point",
+    "rows": 13,
+    "semantic_correct": 5,
+    "false_rejections": 0,
+    "semantic_accuracy": 0.38461538461538464
+  },
+  {
+    "variant": "uav_lora_validation",
+    "category": "rectangle",
+    "rows": 6,
+    "semantic_correct": 0,
+    "false_rejections": 0,
+    "semantic_accuracy": 0.0
+  }
+]

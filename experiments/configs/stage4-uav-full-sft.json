@@ -1,0 +1,16 @@
+{
+  "stage": "stage4-uav-full-sft",
+  "base_checkpoint": "out/full_sft_768.pth",
+  "dataset": "dataset/uav_v4_minimind/uav_v4_train.jsonl",
+  "dataset_sha256": "fb192d7f48fdb19d5b19db13c5362a7b7432b6b8343a10e8e65174ec96406011",
+  "seed": 42,
+  "epochs": 20,
+  "batch_size": 16,
+  "accumulation_steps": 1,
+  "optimizer_steps": 500,
+  "learning_rate": 0.00005,
+  "max_seq_len": 768,
+  "dtype": "bfloat16",
+  "save_weight": "uav_full_sft",
+  "host_gpu": "NVIDIA A10 23028 MiB"
+}

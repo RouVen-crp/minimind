@@ -1,0 +1,5 @@
+variant,failure_type,count
+uav_lora_validation,drone-1.task_type,7
+uav_lora_validation,drone-1.waypoint_count,7
+uav_lora_validation,drone-1.waypoint_value,1
+uav_lora_validation,invalid_or_constraint_error,30

@@ -1,0 +1,22 @@
+[
+  {
+    "variant": "uav_lora_validation",
+    "failure_type": "drone-1.task_type",
+    "count": 7
+  },
+  {
+    "variant": "uav_lora_validation",
+    "failure_type": "drone-1.waypoint_count",
+    "count": 7
+  },
+  {
+    "variant": "uav_lora_validation",
+    "failure_type": "drone-1.waypoint_value",
+    "count": 1
+  },
+  {
+    "variant": "uav_lora_validation",
+    "failure_type": "invalid_or_constraint_error",
+    "count": 30
+  }
+]

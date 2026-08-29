@@ -1,0 +1,15 @@
+{
+  "kind": "pretrain",
+  "checkpoint": "out/pretrain_768.pth",
+  "checkpoint_sha256": "5b7a32e65505d68acef34285223feefa1eaf3d84c4571d3dc4f233d8e4280e74",
+  "data_path": "dataset/experiment_splits/pretrain_validation.jsonl",
+  "data_sha256": "069baf3e210c6a6a0b89a8fe5219f7e0e63ffb5a7f2506e20115b63202f86192",
+  "samples": 128,
+  "supervised_tokens": 26921,
+  "loss": 2.0310208377492387,
+  "perplexity": 7.621863074267999,
+  "batch_size": 32,
+  "max_seq_len": 340,
+  "duration_seconds": 0.7388581599952886,
+  "peak_gpu_memory_mib": 971.534
+}

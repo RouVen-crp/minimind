@@ -1,0 +1,14 @@
+{
+  "variant": "uav_full_sft",
+  "split": "test",
+  "rows": 50,
+  "json_object_rate": 1.0,
+  "plan_constraint_valid_rate": 0.825,
+  "semantic_plan_accuracy": 0.35,
+  "safe_rejection_correct_rate": 0.9,
+  "valid_task_false_rejection_rate": 0.0,
+  "end_to_end_contract_pass_rate": 0.84,
+  "average_attempts": 1.0,
+  "average_latency_seconds": 1.8351847603195346,
+  "simulation_success_rate": null
+}
