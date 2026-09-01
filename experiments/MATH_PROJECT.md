@@ -46,7 +46,7 @@ GitHub 不保存大权重、原始数据和逐题日志。它们已下载到本�
 - 可上传哈希清单：[math-local-archive-20260901.json](manifests/math-local-archive-20260901.json)。
 - 最终模型SHA256：`82b8e338466e238688125c7a480d699a6213ab62b88f3149fb8b3eb25c73d4bb`。
 
-归档包含通用SFT起点、数学warm-up权重、最终权重、含优化器/RNG的恢复断点、官方原始parquet、精确处理后的DAPO/AIME和GSM8K数据。17个文件共约1.68 GiB，全部SHA匹配。
+归档包含通用SFT起点、数学warm-up权重、最终权重、含优化器/RNG的恢复断点、官方原始parquet、精确处理后的DAPO/AIME和GSM8K数据，以及提交分支的完整Git bundle。18个关键文件共约1.69 GiB，全部SHA匹配。
 
 ## 复现与验证
 
