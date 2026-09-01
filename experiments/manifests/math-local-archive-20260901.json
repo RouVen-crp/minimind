@@ -1,0 +1,125 @@
+{
+  "created": "2026-09-01",
+  "remote_host": "dsw-0s3zegbw2it4lbuubg",
+  "all_verified": true,
+  "total_bytes": 1805655220,
+  "files": [
+    {
+      "path": "out/math-archive-20260901/checkpoints/full_sft_768.pth",
+      "bytes": 137684000,
+      "sha256": "ceb382eaaaa98587c528e1ae3cc830603f55a221bd2766212cb40dcefd8420a1",
+      "expected_sha256": "ceb382eaaaa98587c528e1ae3cc830603f55a221bd2766212cb40dcefd8420a1",
+      "verified": true
+    },
+    {
+      "path": "out/math-archive-20260901/checkpoints/math-warmup-20260831.pth",
+      "bytes": 275332390,
+      "sha256": "fa79b23ea266525df62b2751241e60e3aa833a6357bd4f991874bcc40eab7bd8",
+      "expected_sha256": "fa79b23ea266525df62b2751241e60e3aa833a6357bd4f991874bcc40eab7bd8",
+      "verified": true
+    },
+    {
+      "path": "experiments/checkpoints/math-grpo-full-20260901.pth",
+      "bytes": 275332295,
+      "sha256": "82b8e338466e238688125c7a480d699a6213ab62b88f3149fb8b3eb25c73d4bb",
+      "expected_sha256": "82b8e338466e238688125c7a480d699a6213ab62b88f3149fb8b3eb25c73d4bb",
+      "verified": true
+    },
+    {
+      "path": "out/math-archive-20260901/checkpoints/math-grpo-full-resume-20260901.pth",
+      "bytes": 793520809,
+      "sha256": "77d66fb63670bf2d3ffb8d7a1c0b9c1b549c6ccb1a244fbe3dff0e5e634ba35f",
+      "expected_sha256": "77d66fb63670bf2d3ffb8d7a1c0b9c1b549c6ccb1a244fbe3dff0e5e634ba35f",
+      "verified": true
+    },
+    {
+      "path": "out/math-archive-20260901/dataset/math-dapo-20260831/dapo-0.parquet",
+      "bytes": 299363855,
+      "sha256": "534375d6bb8630d22ab46a56e11f2ffec1d288d8f7d04099bc82d68948705941",
+      "expected_sha256": "534375d6bb8630d22ab46a56e11f2ffec1d288d8f7d04099bc82d68948705941",
+      "verified": true
+    },
+    {
+      "path": "out/math-archive-20260901/dataset/math-dapo-20260831/train.jsonl",
+      "bytes": 14807397,
+      "sha256": "e517ba3c924685408b7788728c7617d3ec5898852b238f460eaa976bbd9b9212",
+      "expected_sha256": "e517ba3c924685408b7788728c7617d3ec5898852b238f460eaa976bbd9b9212",
+      "verified": true
+    },
+    {
+      "path": "out/math-archive-20260901/dataset/math-dapo-20260831/aime-0.parquet",
+      "bytes": 29619,
+      "sha256": "12154e38a716d12db5731f9a022ae69a610c4f7d0e0dcc04e902887a686877e7",
+      "expected_sha256": "12154e38a716d12db5731f9a022ae69a610c4f7d0e0dcc04e902887a686877e7",
+      "verified": true
+    },
+    {
+      "path": "out/math-archive-20260901/dataset/math-dapo-20260831/aime.jsonl",
+      "bytes": 26135,
+      "sha256": "b522faebeefe6b5c26bb6926c35b7c99baa8a82281c92726aa9c6b95caa8a7b8",
+      "expected_sha256": "b522faebeefe6b5c26bb6926c35b7c99baa8a82281c92726aa9c6b95caa8a7b8",
+      "verified": true
+    },
+    {
+      "path": "out/math-archive-20260901/dataset/math-warmup-20260831/gsm8k-train.jsonl",
+      "bytes": 4166206,
+      "sha256": "17f347dc51477c50d4efb83959dbb7c56297aba886e5544ee2aaed3024813465",
+      "expected_sha256": "17f347dc51477c50d4efb83959dbb7c56297aba886e5544ee2aaed3024813465",
+      "verified": true
+    },
+    {
+      "path": "out/math-archive-20260901/dataset/math-warmup-20260831/sft_train.jsonl",
+      "bytes": 4949360,
+      "sha256": "c9516dcaf19f66ecaea0b9a4622f72c7f5b2760b68de83644b165502371ae92d",
+      "expected_sha256": "c9516dcaf19f66ecaea0b9a4622f72c7f5b2760b68de83644b165502371ae92d",
+      "verified": true
+    },
+    {
+      "path": "out/math-archive-20260901/dataset/math-warmup-20260831/sft_validation.jsonl",
+      "bytes": 209529,
+      "sha256": "5c401843e66c134e9965b71d8f8253b99a9ee57db4f667ad4657913195c58113",
+      "expected_sha256": "5c401843e66c134e9965b71d8f8253b99a9ee57db4f667ad4657913195c58113",
+      "verified": true
+    },
+    {
+      "path": "out/math-archive-20260901/dataset/math-warmup-20260831/dapo_probe.jsonl",
+      "bytes": 219329,
+      "sha256": "8fd4c672079cb2e9635c99272e247e96b5cb0216c1ddfe326db8720b6ad86cf2",
+      "expected_sha256": "8fd4c672079cb2e9635c99272e247e96b5cb0216c1ddfe326db8720b6ad86cf2",
+      "verified": true
+    }
+  ],
+  "additional_dataset_files": [
+    {
+      "path": "out/math-archive-20260901/dataset/math-dapo-20260831/aime-conflicts.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "verified": true
+    },
+    {
+      "path": "out/math-archive-20260901/dataset/math-dapo-20260831/dapo-conflicts.jsonl",
+      "bytes": 10620,
+      "sha256": "ae4b8bb6abb15f6902a73b8ed6c1343e9a970dc284ec7ed5038a6ed9dcbb9889",
+      "verified": true
+    },
+    {
+      "path": "out/math-archive-20260901/dataset/math-dapo-20260831/evaluation-overlaps.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "verified": true
+    },
+    {
+      "path": "out/math-archive-20260901/dataset/math-dapo-20260831/manifest.json",
+      "bytes": 2598,
+      "sha256": "579964b6cca8fa33cf6d233f6d64bc8374ee2c0a6d4925ea7419d021546f37de",
+      "verified": true
+    },
+    {
+      "path": "out/math-archive-20260901/dataset/math-warmup-20260831/manifest.json",
+      "bytes": 1078,
+      "sha256": "c0cb7db62ec5a4bb8a16ef5a9287f6febfd86eff574e0139614344ab651b3efb",
+      "verified": true
+    }
+  ],
+  "verified_file_count": 17
+}

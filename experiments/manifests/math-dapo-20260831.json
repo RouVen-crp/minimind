@@ -1,0 +1,76 @@
+{
+  "created_unix": 1788168003.3260615,
+  "sources": {
+    "dapo": {
+      "repo": "BytedTsinghua-SIA/DAPO-Math-17k",
+      "revision": "65877096c24ffa7abc4e4fa5edb95cf3413a5674",
+      "metadata_url": "https://hf-mirror.com/api/datasets/BytedTsinghua-SIA/DAPO-Math-17k/revision/65877096c24ffa7abc4e4fa5edb95cf3413a5674",
+      "files": [
+        {
+          "url": "https://hf-mirror.com/datasets/BytedTsinghua-SIA/DAPO-Math-17k/resolve/65877096c24ffa7abc4e4fa5edb95cf3413a5674/data/dapo-math-17k.parquet",
+          "sha256": "534375d6bb8630d22ab46a56e11f2ffec1d288d8f7d04099bc82d68948705941",
+          "verified_lfs_hash": true,
+          "source_file": "data/dapo-math-17k.parquet"
+        }
+      ],
+      "audit": {
+        "raw_rows": 1791700,
+        "invalid_rows": {},
+        "unique_prompt_groups": 17188,
+        "valid_questions": 17176,
+        "conflicting_prompt_groups": 12,
+        "conflicting_raw_rows": 2400,
+        "duplicate_valid_rows_removed": 1772124,
+        "languages": {
+          "other": 13976,
+          "contains_cjk": 3200
+        }
+      }
+    },
+    "aime": {
+      "repo": "BytedTsinghua-SIA/AIME-2024",
+      "revision": "aa49075e24ad594b79fdf0bdcefa735c2181be67",
+      "metadata_url": "https://hf-mirror.com/api/datasets/BytedTsinghua-SIA/AIME-2024",
+      "files": [
+        {
+          "url": "https://hf-mirror.com/datasets/BytedTsinghua-SIA/AIME-2024/resolve/aa49075e24ad594b79fdf0bdcefa735c2181be67/data/aime-2024.parquet",
+          "sha256": "12154e38a716d12db5731f9a022ae69a610c4f7d0e0dcc04e902887a686877e7",
+          "verified_lfs_hash": true,
+          "source_file": "data/aime-2024.parquet"
+        }
+      ],
+      "audit": {
+        "raw_rows": 960,
+        "invalid_rows": {},
+        "unique_prompt_groups": 30,
+        "valid_questions": 30,
+        "conflicting_prompt_groups": 0,
+        "conflicting_raw_rows": 0,
+        "duplicate_valid_rows_removed": 930,
+        "languages": {
+          "other": 30
+        }
+      }
+    }
+  },
+  "train_questions": 17176,
+  "aime_questions": 30,
+  "exact_normalized_problem_overlaps_removed": 0,
+  "near_duplicate_and_pretraining_contamination": "not_excluded",
+  "prompt_tokens": {
+    "0": 101.0,
+    "25": 155.0,
+    "50": 185.0,
+    "75": 224.0,
+    "90": 278.0,
+    "95": 328.0,
+    "99": 525.25,
+    "100": 2102.0
+  },
+  "prompt_over_1024": 25,
+  "cpu_prep_seconds": 420.46351623535156,
+  "prepared_sha256": {
+    "train.jsonl": "e517ba3c924685408b7788728c7617d3ec5898852b238f460eaa976bbd9b9212",
+    "aime.jsonl": "b522faebeefe6b5c26bb6926c35b7c99baa8a82281c92726aa9c6b95caa8a7b8"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "model": "MiniMind-63.9M",
+  "epochs": 1,
+  "data_dir": "dataset/math-dapo-20260831",
+  "train_questions": 17176,
+  "checkpoint": "experiments/math-runs/math-warmup-20260831/warmup.pth",
+  "output_dir": "experiments/math-runs/math-grpo-full-20260831",
+  "num_generations": 8,
+  "max_prompt_tokens": 3072,
+  "max_new_tokens": 256,
+  "learning_rate": 3e-07,
+  "beta": 0.04,
+  "seed": 43,
+  "save_interval": 64,
+  "zero_signal_stop": 256,
+  "wall_time_limit_seconds": 7200,
+  "execution_authorized": false,
+  "required_sha256": {
+    "dataset/math-dapo-20260831/train.jsonl": "e517ba3c924685408b7788728c7617d3ec5898852b238f460eaa976bbd9b9212",
+    "dataset/math-dapo-20260831/aime.jsonl": "b522faebeefe6b5c26bb6926c35b7c99baa8a82281c92726aa9c6b95caa8a7b8",
+    "experiments/math-runs/math-warmup-20260831/warmup.pth": "fa79b23ea266525df62b2751241e60e3aa833a6357bd4f991874bcc40eab7bd8",
+    "model/tokenizer.json": "71f32c68cf63a15355a8fc171b7594b3d41870fe0ddb54fc6aefa55f73a4a668",
+    "model/tokenizer_config.json": "d7cd6a60c9f191c4f9ffec69b2eb289ad2f960366724f328b681ae1e46e4c110",
+    "model/model_minimind.py": "47f124f5f386a8cd76b488b36ecc3e00fc43e3894cdb3ba602420188d9ba8860",
+    "scripts/math_data.py": "e2e4eb4cb410896826a0cb1479d279af204a92d0eba42b95bb92f081cecff4dc",
+    "scripts/math_pilot.py": "399d4f052c7cb6cba1910852bb3db26665570a6d20f3d63bd65151b14e6ad458",
+    "scripts/math_grpo_readiness.py": "823ead65e29df032e239ddbdb103cfefa4ab1cb311b8a39e2e8f517881c86823",
+    "scripts/run_math_full.py": "944492c3d6a61b85cb3702eff926646bd44affc2e10596818858896f7e9b6b86"
+  }
+}

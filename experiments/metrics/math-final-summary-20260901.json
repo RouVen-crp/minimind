@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "model": {
+    "name": "MiniMind-63.9M",
+    "parameters": 63912192,
+    "final_checkpoint_sha256": "82b8e338466e238688125c7a480d699a6213ab62b88f3149fb8b3eb25c73d4bb"
+  },
+  "data": {
+    "dapo_effective_questions": 17176,
+    "sampled_responses": 137408,
+    "parsed_responses": 136674,
+    "correct_responses": 3994,
+    "truncated_responses": 6
+  },
+  "training": {
+    "optimizer_steps": 2428,
+    "nonzero_parameter_updates": 2428,
+    "all_questions_covered": true,
+    "full_workflow_complete": true,
+    "first_run_wall_seconds": 7016.558535814285,
+    "resume_wall_seconds": 2264.182379245758,
+    "total_training_wall_seconds": 9280.740915060043
+  },
+  "verification": {
+    "checkpoint_tensors_exact": true,
+    "checkpoint_reloaded_strictly": true,
+    "aime_before_correct": 0,
+    "aime_after_correct": 0,
+    "aime_questions": 30,
+    "cpu_tests_passed": 14
+  },
+  "held_out_gsm8k": {
+    "questions": 64,
+    "normalized_exact_dapo_overlap": 0,
+    "samples_per_question": 8,
+    "warmup": {
+      "label": "warmup",
+      "checkpoint_sha256": "fa79b23ea266525df62b2751241e60e3aa833a6357bd4f991874bcc40eab7bd8",
+      "validation_loss": 1.366886254408397,
+      "supervised_tokens": 6222,
+      "questions": 64,
+      "greedy_correct": 1,
+      "greedy_parsed": 53,
+      "sampled_responses": 512,
+      "sampled_correct": 5,
+      "sampled_parsed": 468,
+      "pass_at_samples": 3
+    },
+    "final": {
+      "label": "final",
+      "checkpoint_sha256": "82b8e338466e238688125c7a480d699a6213ab62b88f3149fb8b3eb25c73d4bb",
+      "validation_loss": 1.3689835661479186,
+      "supervised_tokens": 6222,
+      "questions": 64,
+      "greedy_correct": 1,
+      "greedy_parsed": 47,
+      "sampled_responses": 512,
+      "sampled_correct": 7,
+      "sampled_parsed": 479,
+      "pass_at_samples": 5
+    },
+    "claim": "inconclusive; no demonstrated generalization improvement"
+  },
+  "training_deciles": [
+    {
+      "decile": 1,
+      "groups": 1717,
+      "correct_rate": 0.0192195690157251,
+      "parse_rate": 0.9905358182877111,
+      "update_group_rate": 0.12230634828188701,
+      "mean_completion_tokens": 6.415695981362842,
+      "mean_kl": 0.05045055651771158,
+      "mean_entropy": 0.7096733401680424
+    },
+    {
+      "decile": 2,
+      "groups": 1718,
+      "correct_rate": 0.028157741559953434,
+      "parse_rate": 0.9931606519208381,
+      "update_group_rate": 0.16181606519208383,
+      "mean_completion_tokens": 6.231664726426077,
+      "mean_kl": 0.1261332279632993,
+      "mean_entropy": 0.5662326065750102
+    },
+    {
+      "decile": 3,
+      "groups": 1717,
+      "correct_rate": 0.028392545136866627,
+      "parse_rate": 0.9954135119394293,
+      "update_group_rate": 0.15084449621432733,
+      "mean_completion_tokens": 6.1627111240535815,
+      "mean_kl": 0.1444888546805231,
+      "mean_entropy": 0.524397278164012
+    },
+    {
+      "decile": 4,
+      "groups": 1718,
+      "correct_rate": 0.026120488940628638,
+      "parse_rate": 0.9941792782305006,
+      "update_group_rate": 0.1408614668218859,
+      "mean_completion_tokens": 6.177823050058207,
+      "mean_kl": 0.17176055574459287,
+      "mean_entropy": 0.5012556680961859
+    },
+    {
+      "decile": 5,
+      "groups": 1718,
+      "correct_rate": 0.031650174621653086,
+      "parse_rate": 0.9957072176949942,
+      "update_group_rate": 0.14610011641443538,
+      "mean_completion_tokens": 6.166836437718277,
+      "mean_kl": 0.1891744698733347,
+      "mean_entropy": 0.470917592727603
+    },
+    {
+      "decile": 6,
+      "groups": 1717,
+      "correct_rate": 0.02890215492137449,
+      "parse_rate": 0.9954135119394293,
+      "update_group_rate": 0.1351193942923704,
+      "mean_completion_tokens": 6.150043680838672,
+      "mean_kl": 0.1972929176330996,
+      "mean_entropy": 0.4587401318478214
+    },
+    {
+      "decile": 7,
+      "groups": 1718,
+      "correct_rate": 0.03470605355064028,
+      "parse_rate": 0.9961437718277066,
+      "update_group_rate": 0.15017462165308498,
+      "mean_completion_tokens": 6.150829452852154,
+      "mean_kl": 0.2046236322209386,
+      "mean_entropy": 0.434723473456131
+    },
+    {
+      "decile": 8,
+      "groups": 1717,
+      "correct_rate": 0.03188701223063483,
+      "parse_rate": 0.9953407105416424,
+      "update_group_rate": 0.13686662783925452,
+      "mean_completion_tokens": 6.184187536400699,
+      "mean_kl": 0.20619973623049387,
+      "mean_entropy": 0.44042947902576224
+    },
+    {
+      "decile": 9,
+      "groups": 1718,
+      "correct_rate": 0.03194121071012806,
+      "parse_rate": 0.9954889406286379,
+      "update_group_rate": 0.1350407450523865,
+      "mean_completion_tokens": 6.1989231664726425,
+      "mean_kl": 0.20282667061219523,
+      "mean_entropy": 0.441871404859136
+    },
+    {
+      "decile": 10,
+      "groups": 1718,
+      "correct_rate": 0.029685681024447033,
+      "parse_rate": 0.995197904540163,
+      "update_group_rate": 0.13445867287543656,
+      "mean_completion_tokens": 6.1871362048894065,
+      "mean_kl": 0.20315459084265386,
+      "mean_entropy": 0.4412829625786411
+    }
+  ],
+  "claim_boundaries": [
+    "Not a full reproduction of the DAPO algorithm",
+    "No demonstrated AIME improvement",
+    "Do not claim mathematical reasoning improvement",
+    "Engineering post-training pipeline completed end-to-end"
+  ]
+}

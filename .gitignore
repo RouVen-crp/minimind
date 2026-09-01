@@ -9,4 +9,18 @@ dataset/**/*.jsonl
 minimind-3/
 out/
 checkpoints/
-*.pthexperiments/runtime/*-latest.json
+*.pth
+experiments/runtime/*-latest.json
+
+# Large/raw math post-training evidence is archived locally; Git keeps compact summaries.
+experiments/metrics/math-full-20260831/
+experiments/metrics/math-full-resume-20260901/
+experiments/metrics/math-pilot-20260831/
+experiments/metrics/math-readiness-20260831/
+experiments/metrics/math-post-eval-20260901/
+
+# Local execution authorization and scheduler/runtime state are not public artifacts.
+experiments/MATH_PLAN.md
+experiments/configs/math-grpo-full-approved.json
+experiments/configs/math-grpo-full-resume-approved.json
+experiments/runtime/math-*.json

@@ -1,0 +1,22 @@
+{
+  "gsm_url": "https://raw.githubusercontent.com/openai/grade-school-math/3101c7d5072418e28b9008a6636bde82a006892c/grade_school_math/data/train.jsonl",
+  "gsm_commit": "3101c7d5072418e28b9008a6636bde82a006892c",
+  "gsm_file_sha256": "17f347dc51477c50d4efb83959dbb7c56297aba886e5544ee2aaed3024813465",
+  "gsm_human_solution_train": 1024,
+  "gsm_validation": 64,
+  "dapo_answer_format_train": 512,
+  "dapo_probe_questions": 256,
+  "probe_overlap_with_dapo_warmup": 0,
+  "seed": 20260831,
+  "max_sft_tokens": 768,
+  "total_sft_examples": 1536,
+  "uses_external_teacher_api": false,
+  "is_self_distillation": false,
+  "length_exclusion": "Only complete prompt+target+EOS <=768 tokens; no target truncation",
+  "near_duplicate_contamination": "not_comprehensively_excluded",
+  "prepared_sha256": {
+    "sft_train.jsonl": "c9516dcaf19f66ecaea0b9a4622f72c7f5b2760b68de83644b165502371ae92d",
+    "sft_validation.jsonl": "5c401843e66c134e9965b71d8f8253b99a9ee57db4f667ad4657913195c58113",
+    "dapo_probe.jsonl": "8fd4c672079cb2e9635c99272e247e96b5cb0216c1ddfe326db8720b6ad86cf2"
+  }
+}

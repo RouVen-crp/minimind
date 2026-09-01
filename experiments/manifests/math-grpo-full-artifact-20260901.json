@@ -1,0 +1,14 @@
+{
+  "artifact": "MiniMind-63.9M math warm-up + one full GRPO epoch",
+  "local_path": "experiments/checkpoints/math-grpo-full-20260901.pth",
+  "remote_source": "/mnt/workspace/minimind/experiments/math-runs/math-grpo-full-resume-20260901/pilot.pth",
+  "bytes": 275332295,
+  "sha256": "82b8e338466e238688125c7a480d699a6213ab62b88f3149fb8b3eb25c73d4bb",
+  "strict_reload_verified": true,
+  "tensor_exact_verified": true,
+  "train_questions": 17176,
+  "optimizer_steps": 2428,
+  "aime_before": "0/30",
+  "aime_after": "0/30",
+  "quality_claim": "No demonstrated math generalization improvement"
+}

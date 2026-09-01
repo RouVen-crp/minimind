@@ -10,6 +10,7 @@
 - `metrics/`：机器可读的逐样本结果与汇总指标。
 - `reports/`：曲线、失败分析和阶段报告。
 - `ROADMAP.md`：从当前状态到简历项目完成度的执行路线。
+- `MATH_PROJECT.md`：数学后训练项目入口、复现方法、结果与口径边界。
 
 ## 当前基线
 
@@ -21,4 +22,4 @@
 - 上游代码快照：`d65ef2c00ebc6082f9df11541e1b191655eddb00`
 - 工作分支：`codex/minimind-repro`
 
-Pretrain 已迁移至远程 A10，并从 step 9000 断点继续第 1 个 epoch。无人机阶段 3A 的数据转换和评测适配已完成；真实 MiniMind Zero 评测等待阶段 2 的个人 Full SFT checkpoint。
+当前已完成两条可审计实验主线：无人机领域 Full SFT / LoRA 适配，以及单张 A10 上的 MiniMind 数学 SFT warm-up + 规则奖励 GRPO 全流程。数学实验完整覆盖 17,176 道去重 DAPO 题目并完成保存、断点恢复、严格重载和固定评测；AIME 仍为 0/30，因此只主张工程闭环，不主张数学推理能力提升。
