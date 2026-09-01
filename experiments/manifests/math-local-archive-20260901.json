@@ -2,7 +2,7 @@
   "created": "2026-09-01",
   "remote_host": "dsw-0s3zegbw2it4lbuubg",
   "all_verified": true,
-  "total_bytes": 1805655220,
+  "total_bytes": 1816592706,
   "files": [
     {
       "path": "out/math-archive-20260901/checkpoints/full_sft_768.pth",
@@ -121,5 +121,13 @@
       "verified": true
     }
   ],
-  "verified_file_count": 17
+  "verified_file_count": 18,
+  "git_bundle": {
+    "path": "out/math-archive-20260901/minimind-math-grpo-be3d394.bundle",
+    "bytes": 10937486,
+    "sha256": "59ac0e13cfb178113f5fc3086e57501376ed5149c8eba7a7b7dc184fd8ea9c43",
+    "verified": true,
+    "branch": "codex/minimind-repro",
+    "commit": "be3d3940b576f6dfa9b0613627481d18d8783961"
+  }
 }
